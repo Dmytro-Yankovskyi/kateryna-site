@@ -28,6 +28,10 @@ h1, h2, h3 {
   background: #ffffff;
 }
 
+.section h2 {
+  margin-bottom: 40px;
+}
+
 /* HERO */
 .overlay {
   position: absolute;
@@ -44,17 +48,16 @@ h1, h2, h3 {
   background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
-  padding-bottom: 40vh;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
+  justify-content: flex-end;
+  padding: 0 8% calc(30vh - 100px);
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
   color: white;
-  max-width: 700px;
+  max-width: 600px;
+  text-align: right;
 }
 
 .subtitle {
@@ -66,6 +69,17 @@ h1, h2, h3 {
 .hero-desc {
   margin-top: 20px;
   font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+	  justify-content: center;
+	  padding: 0 20px calc(30vh - 100px);
+	}
+
+	.hero-content {
+		text-align: center;
+	}
 }
 
 /* SOCIALS */
@@ -222,6 +236,9 @@ h1, h2, h3 {
   text-align: center;
   transition: 0.3s;
   box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .service-card:hover {
@@ -229,29 +246,27 @@ h1, h2, h3 {
   box-shadow: 0 20px 50px rgba(0,0,0,0.1);
 }
 
-.icon {
-  width: 40px;
-  height: 40px;
-  background: #ddd;
-  margin: 0 auto 15px;
-  border-radius: 50%;
-}
-
-.type {
-  font-size: 14px;
-  color: #4A7C59;
-  margin-bottom: 15px;
+.service-icon {
+  margin-bottom: 16px;
 }
 
 .service-list {
   list-style: none;
   margin: 20px 0;
   padding: 0;
+  text-align: left;
+  width: 100%;
 }
 
 .service-list li {
   padding: 10px 0;
   border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #555;
+}
+
+.service-card .btn {
+  margin-top: auto;
 }
 
 .price {
