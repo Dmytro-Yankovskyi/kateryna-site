@@ -9,6 +9,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
+<script>
+const counters = document.querySelectorAll('.stat-num[data-target]');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = +el.getAttribute('data-target');
+
+      let count = 0;
+      const duration = 1200;
+      const step = target / (duration / 16);
+
+      const update = () => {
+        count += step;
+        if (count < target) {
+          el.innerText = Math.floor(count);
+          requestAnimationFrame(update);
+        } else {
+          el.innerText = target + "+";
+        }
+      };
+
+      update();
+      observer.unobserve(el);
+    }
+  });
+});
+
+counters.forEach(el => observer.observe(el));
+</script>
+
 <body>
 
 <!-- HERO -->
@@ -146,20 +178,18 @@
 
 
 <!-- STATS -->
-<section class="section stats-section">
+<section class="stats-section">
   <div class="container">
-
-    <h4 class="stats-title">КЛЮЧОВІ ЦИФРИ</h4>
 
     <div class="stats-row">
 
       <div class="stat-card">
-        <div class="stat-num">8+</div>
+        <div class="stat-num" data-target="8">0</div>
         <div class="stat-desc">років в HR і бізнес-партнерстві</div>
       </div>
 
       <div class="stat-card">
-        <div class="stat-num">100+</div>
+        <div class="stat-num" data-target="100">0</div>
         <div class="stat-desc">сесій та консультацій</div>
       </div>
 
@@ -169,7 +199,7 @@
       </div>
 
       <div class="stat-card">
-        <div class="stat-num">20+</div>
+        <div class="stat-num" data-target="20">0</div>
         <div class="stat-desc">унікальних воркшопів</div>
       </div>
 
@@ -177,6 +207,7 @@
 
   </div>
 </section>
+
 
 <!-- TESTIMONIALS -->
 <section class="section light">
