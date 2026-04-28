@@ -196,7 +196,7 @@ h1, h2, h3 {
 
 .type {
   font-size: 14px;
-  color: #777;
+  color: #4A7C59;
   margin-bottom: 15px;
 }
 
@@ -214,6 +214,7 @@ h1, h2, h3 {
 .price {
   font-weight: 500;
   margin: 20px 0;
+  color: #4A7C59;
 }
 
 /* MOBILE */
@@ -224,11 +225,15 @@ h1, h2, h3 {
 }
 
 
-/* ===== STATS PREMIUM BLOCK ===== */
+/* ===== ЦИФРИ ===== */
+
+.stats_container {
+  padding: 40px 20px;
+}
 
 .stats-section {
   background: #F3F1EC;
-  padding: 20px 0;
+  padding: 40px 0;
 }
 
 .stats-title {
