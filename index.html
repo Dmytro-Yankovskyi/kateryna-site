@@ -217,49 +217,53 @@
 </footer>
 
 <script>
-const elements = document.querySelectorAll('.fade-up');
+document.addEventListener("DOMContentLoaded", () => {
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-});
+  const fadeElements = document.querySelectorAll('.fade-up');
+  const counters = document.querySelectorAll('.stat-num[data-target]');
 
-elements.forEach(el => observer.observe(el));
-</script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
 
-<script>
-const counters = document.querySelectorAll('.stat-num[data-target]');
+      if (entry.isIntersecting) {
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const target = +el.getAttribute('data-target');
-
-      let count = 0;
-      const duration = 1200;
-      const step = target / (duration / 16);
-
-      const update = () => {
-        count += step;
-        if (count < target) {
-          el.innerText = Math.floor(count);
-          requestAnimationFrame(update);
-        } else {
-          el.innerText = target + "+";
+        // 🔥 Анімація появи
+        if (entry.target.classList.contains('fade-up')) {
+          entry.target.classList.add('show');
         }
-      };
 
-      update();
-      observer.unobserve(el);
-    }
+        // 🔢 Анімація цифр
+        if (entry.target.classList.contains('stat-num')) {
+
+          const el = entry.target;
+          const target = +el.getAttribute('data-target');
+
+          let count = 0;
+          const duration = 1200;
+          const step = target / (duration / 16);
+
+          const update = () => {
+            count += step;
+            if (count < target) {
+              el.innerText = Math.floor(count);
+              requestAnimationFrame(update);
+            } else {
+              el.innerText = target + "+";
+            }
+          };
+
+          update();
+        }
+
+        observer.unobserve(entry.target);
+      }
+    });
   });
-});
 
-counters.forEach(el => observer.observe(el));
+  fadeElements.forEach(el => observer.observe(el));
+  counters.forEach(el => observer.observe(el));
+
+});
 </script>
 
 </body>
