@@ -13,25 +13,23 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <h1>Допомагаю бізнесу та HR-фахівцям будувати сильні команди</h1>
-      <a href="https://t.me/Yankovska_Kate" class="btn">Записатись</a>
-    </div>
-    <div class="hero-image"></div>
+  <div class="overlay"></div>
+  <div class="hero-content fade-up">
+    <h1>Допомагаю бізнесу та HR-фахівцям будувати сильні команди</h1>
+    <a href="https://t.me/yourusername" class="btn">Записатись</a>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="section">
-  <div class="container two-col">
+  <div class="container two-col fade-up">
     <div>
       <h2>Про мене</h2>
-      <p>Я в HR 8+ років — працюю на межі бізнесу і людей. Допомагаю розкладати бізнес-цілі на конкретні дії для команди.</p>
+      <p>Я в HR 8+ років — працюю на межі бізнесу і людей.</p>
       <ul>
-        <li>HRBP у Kasta, екс-Head of HR у Comfy</li>
-        <li>Будую KPI, OKR та performance системи</li>
-        <li>Розвиваю лідерів і команди</li>
+        <li>HRBP у Kasta</li>
+        <li>Head of HR у Comfy</li>
+        <li>Розвиток команд і лідерів</li>
       </ul>
     </div>
     <div class="image-placeholder"></div>
@@ -41,20 +39,22 @@
 <!-- SERVICES -->
 <section class="section light">
   <div class="container">
-    <h2>Як я можу допомогти</h2>
+    <h2 class="fade-up">Як я можу допомогти</h2>
 
     <div class="grid-3">
-      <div class="card">
+      <div class="card fade-up">
         <h3>Кар'єрне консультування</h3>
-        <p>Стратегія, CV, співбесіди, ріст доходу</p>
+        <p>Стратегія, CV, співбесіди</p>
       </div>
-      <div class="card">
+
+      <div class="card fade-up">
         <h3>Менторство в HR</h3>
-        <p>Розбір кейсів та розвиток спеціалістів</p>
+        <p>Розбір кейсів</p>
       </div>
-      <div class="card">
+
+      <div class="card fade-up">
         <h3>Воркшопи</h3>
-        <p>Команди, лідерство, взаємодія</p>
+        <p>Команди та лідери</p>
       </div>
     </div>
   </div>
@@ -62,40 +62,48 @@
 
 <!-- STATS -->
 <section class="section">
-  <div class="container stats">
-    <div><h3>8+</h3><p>років досвіду</p></div>
-    <div><h3>100+</h3><p>сесій</p></div>
-    <div><h3>3 HRD</h3><p>виросли</p></div>
-    <div><h3>20+</h3><p>воркшопів</p></div>
+  <div class="container stats fade-up">
+    <div class="stat"><h3>8+</h3><p>років</p></div>
+    <div class="stat"><h3>100+</h3><p>сесій</p></div>
+    <div class="stat"><h3>3 HRD</h3><p>виросли</p></div>
+    <div class="stat"><h3>20+</h3><p>воркшопів</p></div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section class="section light">
   <div class="container">
-    <h2>Відгуки</h2>
+    <h2 class="fade-up">Відгуки</h2>
 
     <div class="testimonials">
-      <div class="testimonial">
-        Дуже сильний ментор. Допомогла вирости до керівної позиції.
-      </div>
-      <div class="testimonial">
-        Системний підхід і реальні результати.
-      </div>
-      <div class="testimonial">
-        Чіткість і впевненість після консультації.
-      </div>
+      <div class="testimonial fade-up">Сильний ментор і системний підхід</div>
+      <div class="testimonial fade-up">Допомогла вирости до керівної ролі</div>
+      <div class="testimonial fade-up">Чіткість і впевненість після роботи</div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="section">
-  <div class="container center">
+  <div class="container center fade-up">
     <h2>Готові зробити наступний крок?</h2>
-    <a href="https://t.me/Yankovska_Kate" class="btn">Написати в Telegram</a>
+    <a href="https://t.me/yourusername" class="btn">Написати в Telegram</a>
   </div>
 </section>
+
+<script>
+const elements = document.querySelectorAll('.fade-up');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+elements.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
