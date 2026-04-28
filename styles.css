@@ -38,7 +38,7 @@ h1, h2, h3 {
 .hero {
   position: relative;
   height: 100vh;
-  background-image: url('images/head_photo.jpg');
+  background-image: url('images/head_image.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
