@@ -241,11 +241,13 @@ h1, h2, h3 {
   align-items: flex-start;
   gap: 24px;
   transition: 0.3s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
 }
 
 .zapyt-card:hover {
   ttransform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+  border-left-color: #2F5D50;
 }
 
 .zapyt-icon {
