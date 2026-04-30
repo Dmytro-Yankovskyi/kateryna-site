@@ -36,7 +36,8 @@ h1, h2, h3 {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.58);
+  backdrop-filter: blur(2px);
 }
 
 .hero {
@@ -44,7 +45,7 @@ h1, h2, h3 {
   height: 100vh;
   background-image: url('images/head_image.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
@@ -60,15 +61,25 @@ h1, h2, h3 {
   text-align: right;
 }
 
+.hero-content h1 {
+  font-size: clamp(42px, 6vw, 80px);
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
 .subtitle {
-  margin-top: 10px;
-  color: #ccc;
-  font-size: 16px;
+  margin-top: 14px;
+  color: #ddd;
+  font-size: clamp(15px, 1.8vw, 20px);
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .hero-desc {
   margin-top: 20px;
-  font-size: 18px;
+  font-size: clamp(15px, 1.6vw, 18px);
+  color: rgba(255,255,255,0.85);
 }
 
 @media (max-width: 768px) {
