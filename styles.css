@@ -448,13 +448,14 @@ h1, h2, h3 {
 }
 
 .testimonial {
-  min-width: calc((100% - 40px) / 3);
+  min-width: calc(50% - 10px);
   background: #fff;
   padding: 28px;
   border-radius: 14px;
   border-left: 4px solid #4A7C59;
   box-shadow: 0 4px 20px rgba(0,0,0,0.07);
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .testimonial strong {
@@ -479,6 +480,10 @@ h1, h2, h3 {
   color: #555;
   font-size: 14px;
   line-height: 1.75;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .testimonials-arrow {
