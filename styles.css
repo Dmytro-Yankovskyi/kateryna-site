@@ -567,7 +567,8 @@ h1, h2, h3 {
 
 /* CTA */
 .cta-section {
-  background: #fff;
+  background: #F8F7F2;
+  border-top: 1px solid #E5E0D8;
 }
 
 .cta-label {
