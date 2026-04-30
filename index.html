@@ -254,49 +254,48 @@
     <h2 class="fade-up">Відгуки</h2>
 
     <div class="testimonials-wrapper">
-      <button class="testimonials-arrow left" onclick="slideTestimonials(-1)">
+
+      <button class="testimonials-arrow" onclick="slideTestimonials(-1)">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="15 18 9 12 15 6"/>
         </svg>
       </button>
 
-      <div class="testimonials-track-outer">
-        <div class="testimonials-track" id="testimonialsTrack">
+      <div class="testimonials-col" id="testimonialsCol">
 
-          <div class="testimonial">
-            <strong>Anna Vasilyuk</strong>
-            <p class="testimonial-role">Head of Human Resources</p>
-            <p>Хочу подякувати Катерині як ментору, наставнику та чудовій людині! Завдяки її підтримці та професійному супроводу я продовжила розвиток у сфері HR та наразі займаю позицію Керівника відділу підбору персоналу.</p>
-          </div>
-
-          <div class="testimonial">
-            <strong>Оксана Постова</strong>
-            <p class="testimonial-role">HRG | HRBP | Talent Acquisition</p>
-            <p>Мала нагоду працювати з Катериною як з HRBP і разом запускати новий проєкт та напрям у компанії. Це була дуже ефективна та бізнес-орієнтована співпраця: за 1 місяць було закрито найм 25 працівників.</p>
-          </div>
-
-          <div class="testimonial">
-            <strong>Anna Sideltseva</strong>
-            <p class="testimonial-role">Кар'єрна консультація</p>
-            <p>Катя — неймовірна! Професійна, чуйна, уважна до деталей. Вона допомогла мені не лише побачити мої сильні сторони, а й повірити в себе.</p>
-          </div>
-
-          <div class="testimonial">
-            <strong>Ім'я Четвертого</strong>
-            <p class="testimonial-role">Посада · Контекст</p>
-            <p>Текст четвертого відгуку. Тут буде реальний відгук коли з'явиться.</p>
-          </div>
-
+        <div class="testimonial" data-index="0">
+          <strong>Anna Vasilyuk</strong>
+          <p class="testimonial-role">Head of Human Resources</p>
+          <p class="testimonial-text">Хочу подякувати Катерині як ментору, наставнику та чудовій людині! Завдяки її підтримці та професійному супроводу я продовжила розвиток у сфері HR та наразі займаю позицію Керівника відділу підбору персоналу. Завдяки менторству я маю можливість системно розвивати навички у побудові команд, налаштуванні HR-процесів та роботі з бізнес-метриками.</p>
         </div>
+
+        <div class="testimonial" data-index="1">
+          <strong>Оксана Постова</strong>
+          <p class="testimonial-role">HRG | HRBP | Talent Acquisition</p>
+          <p class="testimonial-text">Мала нагоду працювати з Катериною як з HRBP і разом запускати новий проєкт та напрям у компанії. Це була дуже ефективна та бізнес-орієнтована співпраця: за 1 місяць було закрито найм 25 працівників. Вона поєднує системне мислення, швидкість реалізації та партнерський підхід до бізнесу.</p>
+        </div>
+
+        <div class="testimonial" data-index="2">
+          <strong>Anna Sideltseva</strong>
+          <p class="testimonial-role">Кар'єрна консультація · PRОкар'єра</p>
+          <p class="testimonial-text">Катя — неймовірна! Професійна, чуйна, уважна до деталей. Вона допомогла мені не лише побачити мої сильні сторони, а й повірити в себе. Це був той самий момент, коли після розмови ти ніби випрямляєш спину й усміхаєшся внутрішньо.</p>
+        </div>
+
+        <div class="testimonial" data-index="3">
+          <strong>Ім'я Четвертого</strong>
+          <p class="testimonial-role">Посада · Контекст</p>
+          <p class="testimonial-text">Текст четвертого відгуку. Тут буде реальний відгук коли з'явиться.</p>
+        </div>
+
       </div>
 
-      <button class="testimonials-arrow right" onclick="slideTestimonials(1)">
+      <button class="testimonials-arrow" onclick="slideTestimonials(1)">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="9 18 15 12 9 6"/>
         </svg>
       </button>
-    </div>
 
+    </div>
   </div>
 </section>
 
@@ -363,25 +362,37 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Testimonials slider
-const track = document.getElementById('testimonialsTrack');
-let currentSlide = 0;
+let testimonialIndex = 0;
 
 function getVisibleCount() {
   return window.innerWidth <= 768 ? 1 : 2;
 }
 
-function slideTestimonials(dir) {
-  const cards = track.querySelectorAll('.testimonial');
+function updateTestimonials() {
+  const cards = document.querySelectorAll('.testimonial');
   const visible = getVisibleCount();
-  const max = cards.length - visible;
+  const total = cards.length;
 
-  currentSlide = Math.max(0, Math.min(currentSlide + dir, max));
+  cards.forEach(c => c.classList.remove('visible'));
 
-  const cardWidth = cards[0].offsetWidth + 20;
-  track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+  for (let i = 0; i < visible; i++) {
+    const idx = (testimonialIndex + i) % total;
+    cards[idx].classList.add('visible');
+  }
 }
 
-window.addEventListener('resize', () => slideTestimonials(0));
+function slideTestimonials(dir) {
+  const cards = document.querySelectorAll('.testimonial');
+  const visible = getVisibleCount();
+  const total = cards.length;
+  const step = visible;
+
+  testimonialIndex = ((testimonialIndex + dir * step) % total + total) % total;
+  updateTestimonials();
+}
+
+window.addEventListener('resize', updateTestimonials);
+updateTestimonials();
 </script>
 
 </body>
