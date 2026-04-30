@@ -429,10 +429,16 @@ h1, h2, h3 {
 
 
 /* TESTIMONIALS */
-.testimonials-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.testimonial {
+  background: #fff;
+  padding: 28px;
+  border-radius: 14px;
+  border-top: 3px solid #4A7C59; /* змінили з лівої на верхню смужку */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  display: none;
+  height: 220px; /* фіксована висота */
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .testimonials-col {
@@ -442,17 +448,9 @@ h1, h2, h3 {
   gap: 16px;
 }
 
-.testimonial {
-  background: #fff;
-  padding: 28px;
-  border-radius: 14px;
-  border-left: 4px solid #4A7C59;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-  display: none;
-}
-
 .testimonial.visible {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .testimonial strong {
@@ -478,9 +476,10 @@ h1, h2, h3 {
   font-size: 14px;
   line-height: 1.75;
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  flex: 1;
 }
 
 .testimonials-arrow {
@@ -504,7 +503,22 @@ h1, h2, h3 {
   border-color: #4A7C59;
 }
 
+.testimonials-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 456px; /* 220px * 2 плитки + 16px gap */
+}
 
+@media (max-width: 768px) {
+  .testimonials-wrapper {
+    min-height: 280px;
+  }
+
+  .testimonial {
+    height: 260px;
+  }
+}
 
 
 /* BUTTON */
