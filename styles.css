@@ -530,21 +530,21 @@ h1, h2, h3 {
 }
 
 @keyframes slideInRight {
-  from { opacity: 0; transform: translateX(40px); }
+  from { opacity: 0; transform: translateX(24px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-40px); }
+  from { opacity: 0; transform: translateX(-24px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
 .testimonial.animate-right {
-  animation: slideInRight 0.35s ease forwards;
+  animation: slideInRight 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .testimonial.animate-left {
-  animation: slideInLeft 0.35s ease forwards;
+  animation: slideInLeft 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 
