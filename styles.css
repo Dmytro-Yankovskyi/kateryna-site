@@ -45,12 +45,12 @@ h1, h2, h3 {
   height: 100vh;
   background-image: url('images/head_image.jpg');
   background-size: cover;
-  background-position: top center;
+  background-position: center 25%;
   background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  padding: 0 8% calc(30vh - 100px);
+  padding: 0 8% calc(25vh - 100px);
 }
 
 .hero-content {
@@ -58,7 +58,7 @@ h1, h2, h3 {
   z-index: 1;
   color: white;
   max-width: 600px;
-  text-align: right;
+  text-align: left;
 }
 
 .hero-content h1 {
@@ -74,6 +74,7 @@ h1, h2, h3 {
   font-size: clamp(15px, 1.8vw, 20px);
   letter-spacing: 2px;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .hero-desc {
@@ -85,11 +86,17 @@ h1, h2, h3 {
 @media (max-width: 768px) {
   .hero {
 	  justify-content: center;
-	  padding: 0 20px calc(30vh - 100px);
+	  padding: 0 20px calc(25vh - 100px);
 	}
 
 	.hero-content {
 		text-align: center;
+	}
+	
+	.subtitle {
+		white-space: normal;
+		font-size: 13px;
+		letter-spacing: 1px;
 	}
 }
 
@@ -98,7 +105,7 @@ h1, h2, h3 {
   margin-top: 30px;
   display: flex;
   gap: 12px;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -116,6 +123,12 @@ h1, h2, h3 {
 
 .socials a:hover {
   background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+  .socials {
+    justify-content: center;
+  }
 }
 
 /* ABOUT */
