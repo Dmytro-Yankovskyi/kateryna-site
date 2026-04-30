@@ -168,7 +168,7 @@
 		  <li>Кількість сесій — під твій запит</li>
 		</ul>
 		<div class="price">від 1 500 грн / сесія</div>
-		<a href="https://calendly.com/yankovdimon/60" class="btn">Записатись</a>
+		<a href="https://calendly.com/yankovdimon/60" class="btn" target="_blank" rel="noopener">Записатись</a>
 	  </div>
 
 	  <div class="service-card">
@@ -187,7 +187,7 @@
 		  <li>Формат і тривалість — індивідуально</li>
 		</ul>
 		<div class="price">від 2 000 грн / сесія</div>
-		<a href="https://calendly.com/yankovdimon/60" class="btn">Записатись</a>
+		<a href="https://calendly.com/yankovdimon/60" class="btn" target="_blank" rel="noopener">Записатись</a>
 	  </div>
 
 	  <div class="service-card">
@@ -209,7 +209,7 @@
 		  <li>Від разового воркшопу до серії зустрічей</li>
 		</ul>
 		<div class="price">&nbsp;</div>
-		<a href="https://calendly.com/yankovdimon/15min" class="btn">Дізнатись деталі</a>
+		<a href="https://calendly.com/yankovdimon/15min" class="btn" target="_blank" rel="noopener">Дізнатись деталі</a>
 	  </div>
 	</div>
   </div>
@@ -253,24 +253,50 @@
   <div class="container">
     <h2 class="fade-up">Відгуки</h2>
 
-    <div class="testimonials">
-      <div class="testimonial">
-        <strong>Anna Vasilyuk</strong>
-        <p>Хочу подякувати Катерині як ментору, наставнику та чудовій людині! Завдяки її підтримці та професійному супроводу я продовжила розвиток у сфері HR та наразі займаю позицію Керівника відділу підбору персоналу. Завдяки менторству я маю можливість системно розвивати навички у побудові команд, налаштуванні HR-процесів та роботі з бізнес-метриками.</p>
+    <div class="testimonials-wrapper">
+      <button class="testimonials-arrow left" onclick="slideTestimonials(-1)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+
+      <div class="testimonials-track-outer">
+        <div class="testimonials-track" id="testimonialsTrack">
+
+          <div class="testimonial">
+            <strong>Anna Vasilyuk</strong>
+            <p class="testimonial-role">Head of Human Resources</p>
+            <p>Хочу подякувати Катерині як ментору, наставнику та чудовій людині! Завдяки її підтримці та професійному супроводу я продовжила розвиток у сфері HR та наразі займаю позицію Керівника відділу підбору персоналу.</p>
+          </div>
+
+          <div class="testimonial">
+            <strong>Оксана Постова</strong>
+            <p class="testimonial-role">HRG | HRBP | Talent Acquisition</p>
+            <p>Мала нагоду працювати з Катериною як з HRBP і разом запускати новий проєкт та напрям у компанії. Це була дуже ефективна та бізнес-орієнтована співпраця: за 1 місяць було закрито найм 25 працівників.</p>
+          </div>
+
+          <div class="testimonial">
+            <strong>Anna Sideltseva</strong>
+            <p class="testimonial-role">Кар'єрна консультація</p>
+            <p>Катя — неймовірна! Професійна, чуйна, уважна до деталей. Вона допомогла мені не лише побачити мої сильні сторони, а й повірити в себе.</p>
+          </div>
+
+          <div class="testimonial">
+            <strong>Ім'я Четвертого</strong>
+            <p class="testimonial-role">Посада · Контекст</p>
+            <p>Текст четвертого відгуку. Тут буде реальний відгук коли з'явиться.</p>
+          </div>
+
+        </div>
       </div>
 
-<div class="testimonial">
-        <strong>Оксана Постова</strong>
-        <p>Мала нагоду працювати з Катериною як з HRBP і разом запускати новий проєкт та напрям у компанії. Це була дуже ефективна та бізнес-орієнтована співпраця: за 1 місяць було закрито найм 25 працівників. Вона поєднує системне мислення, швидкість реалізації та партнерський підхід до бізнесу.</p>
-      </div>
-
-
-<div class="testimonial">
-        <strong>Anna Sideltseva</strong>
-        <p>Катя — неймовірна! Професійна, чуйна, уважна до деталей. Вона допомогла мені не лише побачити мої сильні сторони, а й повірити в себе. Це був той самий момент, коли після розмови ти ніби випрямляєш спину й усміхаєшся внутрішньо. Катерину рекомендую як висококласну кар'єрну консультантку, з якою хочеться не тільки працювати, а й просто спілкуватися.</p>
-      </div>
-
+      <button class="testimonials-arrow right" onclick="slideTestimonials(1)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
     </div>
+
   </div>
 </section>
 
@@ -335,6 +361,27 @@ document.addEventListener("DOMContentLoaded", () => {
   counters.forEach(el => observer.observe(el));
 
 });
+
+// Testimonials slider
+const track = document.getElementById('testimonialsTrack');
+let currentSlide = 0;
+
+function getVisibleCount() {
+  return window.innerWidth <= 768 ? 1 : 3;
+}
+
+function slideTestimonials(dir) {
+  const cards = track.querySelectorAll('.testimonial');
+  const visible = getVisibleCount();
+  const max = cards.length - visible;
+
+  currentSlide = Math.max(0, Math.min(currentSlide + dir, max));
+
+  const cardWidth = cards[0].offsetWidth + 20;
+  track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+}
+
+window.addEventListener('resize', () => slideTestimonials(0));
 </script>
 
 </body>
