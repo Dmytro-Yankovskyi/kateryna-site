@@ -363,21 +363,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Testimonials slider
 let testimonialIndex = 0;
+let testimonialDir = 1;
 
 function getVisibleCount() {
   return window.innerWidth <= 768 ? 1 : 2;
 }
 
-function updateTestimonials() {
+function updateTestimonials(animate = false) {
   const cards = document.querySelectorAll('.testimonial');
   const visible = getVisibleCount();
   const total = cards.length;
 
-  cards.forEach(c => c.classList.remove('visible'));
+  cards.forEach(c => {
+    c.classList.remove('visible', 'animate-right', 'animate-left');
+    c.style.display = 'none';
+  });
 
   for (let i = 0; i < visible; i++) {
     const idx = (testimonialIndex + i) % total;
-    cards[idx].classList.add('visible');
+    const card = cards[idx];
+    card.style.display = 'flex';
+    card.classList.add('visible');
+
+    if (animate) {
+      void card.offsetWidth; // reflow
+      card.classList.add(testimonialDir > 0 ? 'animate-right' : 'animate-left');
+    }
   }
 }
 
@@ -385,14 +396,14 @@ function slideTestimonials(dir) {
   const cards = document.querySelectorAll('.testimonial');
   const visible = getVisibleCount();
   const total = cards.length;
-  const step = visible;
 
-  testimonialIndex = ((testimonialIndex + dir * step) % total + total) % total;
-  updateTestimonials();
+  testimonialDir = dir;
+  testimonialIndex = ((testimonialIndex + dir * visible) % total + total) % total;
+  updateTestimonials(true);
 }
 
-window.addEventListener('resize', updateTestimonials);
-updateTestimonials();
+window.addEventListener('resize', () => updateTestimonials(false));
+updateTestimonials(false);
 </script>
 
 </body>

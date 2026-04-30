@@ -436,7 +436,7 @@ h1, h2, h3 {
   border-top: 3px solid #4A7C59; /* змінили з лівої на верхню смужку */
   box-shadow: 0 4px 20px rgba(0,0,0,0.07);
   display: none;
-  height: 220px; /* фіксована висота */
+  height: 240px; /* фіксована висота */
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -510,14 +510,41 @@ h1, h2, h3 {
   min-height: 456px; /* 220px * 2 плитки + 16px gap */
 }
 
-@media (max-width: 768px) {
-  .testimonials-wrapper {
-    min-height: 280px;
-  }
-
+@media (max-width: 1100px) {
   .testimonial {
-    height: 260px;
+    height: 270px;
   }
+  .testimonials-wrapper {
+    min-height: 556px; /* 270*2 + 16 */
+  }
+}
+
+@media (max-width: 768px) {
+    .testimonial {
+    height: 300px;
+  }
+  
+  .testimonials-wrapper {
+    min-height: 300px;
+  }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.testimonial.animate-right {
+  animation: slideInRight 0.35s ease forwards;
+}
+
+.testimonial.animate-left {
+  animation: slideInLeft 0.35s ease forwards;
 }
 
 
