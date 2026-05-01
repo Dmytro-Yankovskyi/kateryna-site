@@ -3,9 +3,10 @@
 	<head>
 	  <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <title>Kateryna Yankovska — HRBP, Менторка, Консультантка</title>
+		<title>Kateryna Yankovska — HRBP, Менторка, Консультантка</title>
 	  <meta name="description" content="Допомагаю бізнесу та HR-фахівцям будувати сильні команди. Кар'єрні консультації, менторство в HR, воркшопи для лідерів.">
-      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+     <link rel="preload" as="image" href="images/head_image.webp" fetchpriority="high">
+	 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 	  <link rel="manifest" href="/site.webmanifest">
@@ -261,7 +262,7 @@
 
     <div class="testimonials-wrapper">
 
-      <button class="testimonials-arrow" onclick="slideTestimonials(-1)">
+      <button class="testimonials-arrow" onclick="slideTestimonials(-1)" aria-label="Попередній відгук">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="15 18 9 12 15 6"/>
         </svg>
@@ -295,7 +296,7 @@
 
       </div>
 
-      <button class="testimonials-arrow" onclick="slideTestimonials(1)">
+      <button class="testimonials-arrow" onclick="slideTestimonials(1) aria-label="Наступний відгук"">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="9 18 15 12 9 6"/>
         </svg>
@@ -428,8 +429,9 @@ function updateTestimonials(animate = false) {
     card.classList.add('visible');
 
     if (animate) {
-      void card.offsetWidth; // reflow
-      card.classList.add(testimonialDir > 0 ? 'animate-right' : 'animate-left');
+      setTimeout(() => {
+		card.classList.add(testimonialDir > 0 ? 'animate-right' : 'animate-left');
+		}, 10);
     }
   }
 }
