@@ -10,6 +10,7 @@ body {
   background: #F8F7F2;
   color: #1A1A1A;
   line-height: 1.6;
+  font-size: 18px;
 }
 
 h1, h2, h3 {
@@ -163,6 +164,7 @@ h1, h2, h3 {
 
 /* ABOUT */
 .about-box {
+  font-size: 17px;
   background: #fff;
   padding: 28px;
   border-radius: 14px;
@@ -265,13 +267,13 @@ h1, h2, h3 {
 }
 
 .zapyt-body h3 {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 8px;
   color: #1A1A1A;
 }
 
 .zapyt-body p {
-  font-size: 15px;
+  font-size: 17px;
   color: #555;
   line-height: 1.7;
 }
@@ -336,7 +338,7 @@ h1, h2, h3 {
 .service-list li {
   padding: 10px 0;
   border-bottom: 1px solid #eee;
-  font-size: 14px;
+  font-size: 16px;
   color: #555;
 }
 
@@ -422,7 +424,7 @@ h1, h2, h3 {
 
 /* DESCRIPTION */
 .stat-desc {
-  font-size: 13px;
+  font-size: 15px;
   color: #7A7A7A;
   line-height: 1.5;
 }
@@ -480,7 +482,7 @@ h1, h2, h3 {
 .testimonial-text {
   font-style: italic;
   color: #555;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.75;
   display: -webkit-box;
   -webkit-line-clamp: 5;
@@ -590,7 +592,7 @@ h1, h2, h3 {
 .cta-desc {
   max-width: 520px;
   margin: 20px auto 0;
-  font-size: 16px;
+  font-size: 18px;
   color: #555;
   line-height: 1.75;
 }
