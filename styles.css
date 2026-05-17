@@ -438,16 +438,12 @@ h1, h2, h3 {
 
 
 /* TESTIMONIALS */
-.testimonial {
-  background: #fff;
-  padding: 28px;
-  border-radius: 14px;
-  border-top: 3px solid #4A7C59; /* змінили з лівої на верхню смужку */
-  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-  display: none;
-  height: 240px; /* фіксована висота */
-  overflow: hidden;
-  box-sizing: border-box;
+/* TESTIMONIALS */
+.testimonials-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  min-height: 576px;
 }
 
 .testimonials-col {
@@ -457,9 +453,26 @@ h1, h2, h3 {
   gap: 16px;
 }
 
+.testimonial {
+  background: #fff;
+  padding: 28px;
+  border-radius: 14px;
+  border-top: 3px solid #4A7C59;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  display: none;
+  overflow: hidden;
+  box-sizing: border-box;
+  max-height: 280px;
+  transition: max-height 0.4s ease;
+}
+
 .testimonial.visible {
   display: flex;
   flex-direction: column;
+}
+
+.testimonial.expanded {
+  max-height: 500px;
 }
 
 .testimonial strong {
@@ -482,13 +495,35 @@ h1, h2, h3 {
 .testimonial-text {
   font-style: italic;
   color: #555;
-  font-size: 13px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.75;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  flex: 1;
+}
+
+.testimonial.expanded .testimonial-text {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+}
+
+.read-more {
+  margin-top: 12px;
+  background: none;
+  border: none;
+  color: #4A7C59;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  flex-shrink: 0;
+}
+
+.read-more:hover {
+  text-decoration: underline;
 }
 
 .testimonials-arrow {
@@ -504,6 +539,7 @@ h1, h2, h3 {
   justify-content: center;
   color: #4A7C59;
   transition: 0.3s;
+  margin-top: 130px;
 }
 
 .testimonials-arrow:hover {
@@ -512,33 +548,24 @@ h1, h2, h3 {
   border-color: #4A7C59;
 }
 
-.testimonials-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  min-height: 456px; /* 220px * 2 плитки + 16px gap */
-}
-
 @media (max-width: 1100px) {
-  .testimonial {
-    height: 270px;
-  }
   .testimonials-wrapper {
-    min-height: 556px; /* 270*2 + 16 */
+    min-height: 540px;
   }
 }
 
 @media (max-width: 768px) {
-  .testimonial {
-    height: 300px;
-  }
-  
-  .testimonial-text {
-    font-size: 13px;
-  }
-  
   .testimonials-wrapper {
     min-height: 300px;
+    align-items: center;
+  }
+
+  .testimonials-arrow {
+    margin-top: 0;
+  }
+
+  .testimonial-text {
+    font-size: 13px;
   }
 }
 
