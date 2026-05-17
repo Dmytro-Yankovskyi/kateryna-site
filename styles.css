@@ -503,6 +503,14 @@ h1, h2, h3 {
   overflow: hidden;
 }
 
+.testimonial-text p {
+  margin-bottom: 10px;
+}
+
+.testimonial-text p:last-child {
+  margin-bottom: 0;
+}
+
 .testimonial.expanded .testimonial-text {
   display: block;
   overflow: visible;
