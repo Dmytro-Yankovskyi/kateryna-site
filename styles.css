@@ -79,8 +79,9 @@ h1, h2, h3 {
 }
 
 .hero-desc {
+  font-family: 'Playfair Display', serif; 
   margin-top: 20px;
-  font-size: clamp(15px, 1.6vw, 18px);
+  font-size: clamp(25px, 1.6vw, 18px);
   color: rgba(255,255,255,0.85);
 }
 
@@ -135,7 +136,7 @@ h1, h2, h3 {
   display: flex !important;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.15) !important;
+  background: #4A7C59 !important;
   border: 1px solid rgba(255, 255, 255, 0.5) !important;
   padding: 10px 18px !important;
   border-radius: 30px !important;
