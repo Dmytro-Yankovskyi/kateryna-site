@@ -482,8 +482,8 @@ h1, h2, h3 {
 .testimonial-text {
   font-style: italic;
   color: #555;
-  font-size: 16px;
-  line-height: 1.75;
+  font-size: 13px;
+  line-height: 1.55;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
@@ -529,7 +529,7 @@ h1, h2, h3 {
 }
 
 @media (max-width: 768px) {
-    .testimonial {
+  .testimonial {
     height: 300px;
   }
   
