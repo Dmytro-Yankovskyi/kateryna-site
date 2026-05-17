@@ -533,6 +533,10 @@ h1, h2, h3 {
     height: 300px;
   }
   
+  .testimonial-text {
+    font-size: 13px;
+  }
+  
   .testimonials-wrapper {
     min-height: 300px;
   }
